@@ -1,8 +1,13 @@
 package ru.javawebinar.topjava.model;
 
-import java.time.LocalDateTime;
+import lombok.Getter;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+@Getter
 public class MealTo {
+
     private final LocalDateTime dateTime;
 
     private final String description;
@@ -26,5 +31,9 @@ public class MealTo {
                 ", calories=" + calories +
                 ", excess=" + excess +
                 '}';
+    }
+
+    public String getDateStr() {
+        return this.dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE);
     }
 }
